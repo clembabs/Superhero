@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 
 class NetworkManager extends GetxController {
   //this variable 0 = No Internet, 1 = connected to WIFI ,2 = connected to Mobile Data.
-  int connectionType = 0;
+  RxInt connectionType = 0.obs;
+
+  int get connectiontype => connectionType.value;
 
   //Instance of Flutter Connectivity
   final Connectivity _connectivity = Connectivity();
@@ -39,15 +41,15 @@ class NetworkManager extends GetxController {
   _updateState(ConnectivityResult? result) {
     switch (result) {
       case ConnectivityResult.wifi:
-        connectionType = 1;
+        connectionType = 1.obs;
         update();
         break;
       case ConnectivityResult.mobile:
-        connectionType = 2;
+        connectionType = 2.obs;
         update();
         break;
       case ConnectivityResult.none:
-        connectionType = 0;
+        connectionType = 0.obs;
         update();
         break;
       default:
