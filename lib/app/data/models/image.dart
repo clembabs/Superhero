@@ -5,10 +5,10 @@ class ImageResponse {
   });
 
   factory ImageResponse.fromJson(Map<String, dynamic> json) => ImageResponse(
-        url: json["url"],
+        url: json['url'],
       );
 
-  Map<String, dynamic> toJson() => {
-        "url": url,
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'url': url,
       };
 }

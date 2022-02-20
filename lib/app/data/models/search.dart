@@ -29,26 +29,26 @@ class Result {
   });
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
-        response: json["response"],
-        id: json["id"],
-        name: json["name"],
-        powerstats: Powerstats.fromJson(json["powerstats"]),
-        biography: Biography.fromJson(json["biography"]),
-        appearance: Appearance.fromJson(json["appearance"]),
-        work: Work.fromJson(json["work"]),
-        connections: Connections.fromJson(json["connections"]),
-        image: ImageResponse.fromJson(json["image"]),
+        response: json['response'],
+        id: json['id'],
+        name: json['name'],
+        powerstats: Powerstats.fromJson(json['powerstats']),
+        biography: Biography.fromJson(json['biography']),
+        appearance: Appearance.fromJson(json['appearance']),
+        work: Work.fromJson(json['work']),
+        connections: Connections.fromJson(json['connections']),
+        image: ImageResponse.fromJson(json['image']),
       );
 
-  Map<String, dynamic> toJson() => {
-        "response": response,
-        "id": id,
-        "name": name,
-        "powerstats": powerstats!.toJson(),
-        "biography": biography!.toJson(),
-        "appearance": appearance!.toJson(),
-        "work": work!.toJson(),
-        "connections": connections!.toJson(),
-        "image": image!.toJson(),
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'response': response,
+        'id': id,
+        'name': name,
+        'powerstats': powerstats!.toJson(),
+        'biography': biography!.toJson(),
+        'appearance': appearance!.toJson(),
+        'work': work!.toJson(),
+        'connections': connections!.toJson(),
+        'image': image!.toJson(),
       };
 }

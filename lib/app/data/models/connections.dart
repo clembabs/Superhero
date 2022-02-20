@@ -8,12 +8,12 @@ class Connections {
   });
 
   factory Connections.fromJson(Map<String, dynamic> json) => Connections(
-        groupAffiliation: json["group-affiliation"],
-        relatives: json["relatives"],
+        groupAffiliation: json['group-affiliation'],
+        relatives: json['relatives'],
       );
 
-  Map<String, dynamic> toJson() => {
-        "group-affiliation": groupAffiliation,
-        "relatives": relatives,
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'group-affiliation': groupAffiliation,
+        'relatives': relatives,
       };
 }

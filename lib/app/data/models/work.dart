@@ -8,12 +8,12 @@ class Work {
   });
 
   factory Work.fromJson(Map<String, dynamic> json) => Work(
-        occupation: json["occupation"],
-        base: json["base"],
+        occupation: json['occupation'],
+        base: json['base'],
       );
 
-  Map<String, dynamic> toJson() => {
-        "occupation": occupation,
-        "base": base,
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'occupation': occupation,
+        'base': base,
       };
 }

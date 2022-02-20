@@ -18,22 +18,22 @@ class Biography {
   });
 
   factory Biography.fromJson(Map<String, dynamic> json) => Biography(
-        fullName: json["full-name"],
-        alterEgos: json["alter-egos"],
-        aliases: List<String>.from(json["aliases"].map((x) => x)),
-        placeOfBirth: json["place-of-birth"],
-        firstAppearance: json["first-appearance"],
-        publisher: json["publisher"],
-        alignment: json["alignment"],
+        fullName: json['full-name'],
+        alterEgos: json['alter-egos'],
+        aliases: List<String>.from(json['aliases'].map((dynamic x) => x)),
+        placeOfBirth: json['place-of-birth'],
+        firstAppearance: json['first-appearance'],
+        publisher: json['publisher'],
+        alignment: json['alignment'],
       );
 
-  Map<String, dynamic> toJson() => {
-        "full-name": fullName,
-        "alter-egos": alterEgos,
-        "aliases": List<dynamic>.from(aliases!.map((x) => x)),
-        "place-of-birth": placeOfBirth,
-        "first-appearance": firstAppearance,
-        "publisher": publisher,
-        "alignment": alignment,
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'full-name': fullName,
+        'alter-egos': alterEgos,
+        'aliases': List<dynamic>.from(aliases!.map((dynamic x) => x)),
+        'place-of-birth': placeOfBirth,
+        'first-appearance': firstAppearance,
+        'publisher': publisher,
+        'alignment': alignment,
       };
 }
