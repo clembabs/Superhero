@@ -1,3 +1,4 @@
 class TranslateKeys {
-  static const String activity = 'activity';
+  static const String superhero = 'superhero';
+  static const String superheroDesc = 'superhero_desc';
 }

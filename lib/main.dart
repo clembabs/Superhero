@@ -19,7 +19,7 @@ void main() async {
     title: 'Superhero',
     debugShowCheckedModeBanner: false,
     initialBinding: NetworkBinding(),
-    initialRoute: Routes.base,
+    initialRoute: Routes.splashScreen,
     getPages: Pages.pages,
     locale: Get.deviceLocale,
     fallbackLocale: const Locale('en', 'US'),
