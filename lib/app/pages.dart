@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:superhero/app/bindings/network_binding.dart';
+import 'package:superhero/app/pages/details_page.dart';
 import 'package:superhero/app/pages/home_page.dart';
 import 'package:superhero/app/pages/splash_screen.dart';
 import 'package:superhero/app/routes.dart';
@@ -23,6 +24,11 @@ abstract class Pages {
     GetPage<dynamic>(
       name: Routes.home,
       page: () => HomePage(),
+    ),
+    GetPage<dynamic>(
+      name: Routes.homeDetails + ':id',
+      page: () => const DetailsPage(),
+      transition: Transition.noTransition,
     ),
   ];
 }

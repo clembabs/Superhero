@@ -9,7 +9,6 @@ class SuperHeroController extends GetxController {
   bool get isLoading => _isLoading.value;
 
   //SuperheroResponse? response;
-
   @override
   void onInit() {
     getSuperhero();

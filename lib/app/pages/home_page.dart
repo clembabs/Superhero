@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:superhero/app/controllers/connection_controller.dart';
 import 'package:superhero/app/controllers/superhero_controller.dart';
-import 'package:superhero/app/data/models/superhero_response.dart';
-import 'package:superhero/app/data/repositories/superhero_repo.dart';
+import 'package:superhero/app/routes.dart';
 import 'package:superhero/app/utils/app_colors.dart';
 import 'package:superhero/app/widgets/hero_list_item.dart';
 
@@ -26,7 +25,7 @@ class HomePage extends StatelessWidget {
                   const Text(
                     'SUPERHERO',
                     style: TextStyle(
-                        fontSize: 40.0,
+                        fontSize: 30.0,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2,
                         color: Colors.black),
@@ -40,24 +39,18 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).paddingSymmetric(vertical: 20),
-              GestureDetector(
-                onTap: () async {
-                  SuperheroResponse? response =
-                      await SuperheroService().getCharactersDetails();
-                  print(response);
-                },
-                child: Container(
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: AppColors.teal,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: const Text(
-                    'Popular',
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
-                  ),
-                ).paddingOnly(bottom: 15),
-              ),
+              ).paddingSymmetric(vertical: 18),
+              Container(
+                height: 32,
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                    color: AppColors.teal,
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Text(
+                  'Popular',
+                  style: TextStyle(fontSize: 20.0, color: Colors.white),
+                ),
+              ).paddingOnly(bottom: 20),
               Obx(() => Column(
                     children: <Widget>[
                       if (controller.isLoading)
@@ -71,14 +64,15 @@ class HomePage extends StatelessWidget {
                               .superheroResponse.value.biography!.fullName!,
                           coverPhotoUrl:
                               controller.superheroResponse.value.image!.url!,
-                          aliases: controller
-                              .superheroResponse.value.biography!.aliases!,
-                          onTap: () {},
+                          gender: controller
+                              .superheroResponse.value.appearance!.gender!,
+                          onTap: () => Get.toNamed(Routes.homeDetails +
+                              (controller.superheroResponse.value.id ?? '')),
                         ),
                     ],
                   ))
             ],
-          ),
+          ).paddingAll(20),
         ),
       );
 }

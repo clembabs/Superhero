@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:superhero/app/data/providers/network_manager.dart';
 import 'package:superhero/app/routes.dart';
 import 'package:superhero/app/translations/locales/translation_keys.dart';
 import 'package:superhero/app/utils/app_colors.dart';
@@ -46,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    NetworkManager _networkManager = Get.put<NetworkManager>(NetworkManager());
+
     return Scaffold(
       backgroundColor: AppColors.teal,
       body: Stack(
