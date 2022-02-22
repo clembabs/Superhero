@@ -27,13 +27,12 @@ void main() async {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: MyHomePage(),
+    //home: MyHomePage(),
   ));
 }
 
 class MyHomePage extends StatelessWidget {
-  final NetworkManager _networkManager =
-      Get.put<NetworkManager>(NetworkManager());
+  final NetworkManager _networkManager = Get.find();
   MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -47,6 +46,7 @@ class MyHomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
               //update the Network State
+
               Obx(() => Text(
                     (_networkManager.connectiontype == 0)
                         ? 'No Internet'

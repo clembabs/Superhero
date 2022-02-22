@@ -10,6 +10,8 @@ class NetworkManager extends GetxController {
 
   int get connectiontype => connectionType.value;
 
+  bool connectionStatus = false;
+
   //Instance of Flutter Connectivity
   final Connectivity _connectivity = Connectivity();
 

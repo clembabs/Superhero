@@ -5,7 +5,7 @@ import 'package:superhero/app/data/models/image.dart';
 import 'package:superhero/app/data/models/power_stats.dart';
 import 'package:superhero/app/data/models/work.dart';
 
-class Result {
+class SuperheroResponse {
   String? response;
   String? id;
   String? name;
@@ -16,7 +16,7 @@ class Result {
   Connections? connections;
   ImageResponse? image;
 
-  Result({
+  SuperheroResponse({
     this.response,
     this.id,
     this.name,
@@ -28,7 +28,8 @@ class Result {
     this.image,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory SuperheroResponse.fromJson(Map<String, dynamic> json) =>
+      SuperheroResponse(
         response: json['response'],
         id: json['id'],
         name: json['name'],
