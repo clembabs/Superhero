@@ -26,8 +26,8 @@ abstract class Pages {
       page: () => HomePage(),
     ),
     GetPage<dynamic>(
-      name: Routes.homeDetails + ':id',
-      page: () => const DetailsPage(),
+      name: Routes.homeDetails,
+      page: () => DetailsPage(),
       transition: Transition.noTransition,
     ),
   ];

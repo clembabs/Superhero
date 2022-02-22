@@ -1,40 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:superhero/app/controllers/superhero_controller.dart';
-import 'package:superhero/app/controllers/view_superhero_controller.dart';
 
-class DetailsPage extends StatefulWidget {
-  const DetailsPage({Key? key}) : super(key: key);
-
-  @override
-  State<DetailsPage> createState() => _DetailsPageState();
-}
-
-class _DetailsPageState extends State<DetailsPage> {
-  late ViewSuperHeroController controller;
-
-  SuperHeroController superHeroController = Get.find();
-  late String id;
-
-  @override
-  void initState() {
-    id = Get.parameters['id']!;
-
-    controller = Get.isRegistered<ViewSuperHeroController>(tag: id)
-        ? Get.find(tag: id)
-        : Get.put(
-            ViewSuperHeroController(id: id),
-            tag: id,
-          );
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    Get.delete<ViewSuperHeroController>(tag: id);
-    super.dispose();
-  }
+class DetailsPage extends StatelessWidget {
+  final SuperHeroController controller = Get.find();
+  DetailsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,47 +13,41 @@ class _DetailsPageState extends State<DetailsPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Stack(
+        body: Column(
           children: <Widget>[
-            // White Container top half
-            Container(
-              height: screenHeight / 2.1,
-              decoration: const BoxDecoration(
+            //White Container top half
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: screenHeight / 1.6,
+                width: 140,
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(40.0),
-                    bottomRight: Radius.circular(40.0)),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Image.network(
-                    controller.superResponse.image!.url!,
-                    fit: BoxFit.cover,
-                  ),
-                ],
+                child: Image.network(
+                  controller.superheroResponse.value.image!.url!,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+            paddingOnly(bottom: 20),
 
             // Text bottom part
             Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  controller.superResponse.name!,
+                  controller.superheroResponse.value.name!,
                   textAlign: TextAlign.start,
                   style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 30.0),
                 Text(
-                  controller.superResponse.biography!.fullName!,
+                  controller.superheroResponse.value.biography!.fullName!,
                   style: TextStyle(
                     fontSize: 15.0,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.black.withOpacity(0.8),
                     height: 1.5,
                   ),
                 ),

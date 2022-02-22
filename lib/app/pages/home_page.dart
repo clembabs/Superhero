@@ -66,8 +66,8 @@ class HomePage extends StatelessWidget {
                               controller.superheroResponse.value.image!.url!,
                           gender: controller
                               .superheroResponse.value.appearance!.gender!,
-                          onTap: () => Get.toNamed(Routes.homeDetails +
-                              (controller.superheroResponse.value.id ?? '')),
+                          onTap: () => Get.toNamed(Routes.homeDetails,
+                              arguments: controller.superheroResponse.value),
                         ),
                     ],
                   ))
